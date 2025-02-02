@@ -1,5 +1,7 @@
 # Analyzing your own Cube drafts
 
+This is a copied and edited version of the tireless-tracker project created by Jett Crowdis https://github.com/jett-crowdis/tireless-tracker . The original code was not functional with the changes to Scryfalls API over the years so I have updated it to a working state. The write-up below is **NOT** my creation and comes from the original README. Most of the syntax is the same so none of the below needed to be altered.
+
 This code accompanies the Tireless Tracker article Analyzing your own Cube drafts. There are two scripts in this directory:
 
 1. `analyze_decklists.py`: this script analyzes an input folder of decklists and outputs various analyses.
