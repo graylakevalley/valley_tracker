@@ -10,8 +10,6 @@ import matplotlib.pyplot as plt
 
 def fetch_cards():
     '''Fetches the default cards from Scryfall'''
-
-
     print('Fetching cards from Scryfall...')
     resp = requests.get('https://api.scryfall.com/bulk-data/oracle-cards')
     download_uri = resp.json()["download_uri"]
@@ -20,33 +18,26 @@ def fetch_cards():
     magic_cards = {}
     for i in range(len(json_data)):
         card_name = json_data[i]['name']
-        print(json_data[i])
-        #break
         if card_name not in magic_cards.keys():
             magic_cards[card_name] = {'color': ''.join(json_data[i]['color_identity']),
                                       'cmc': json_data[i]['cmc'],
                                       'type': json_data[i]['type_line']}
 
-    
-        if json_data[i]['layout'] == 'transform': magic_cards[card_name.split('//')[0].strip(' ')] = magic_cards[card_name]
+        if json_data[i]['layout'] == 'transform': 
+            magic_cards[card_name.split('//')[0].strip(' ')] = magic_cards[card_name]
 
     return magic_cards
 
 def make_deck(infile):
-
     '''Given a deck text file, analyze its contents. Outputs the main/sideboard rate of cards, the win/loss, deck colors, archetypes'''
-
     maindeck, side = [], []
 
     with open(infile) as deck_file:
-
-        # extract deck "meta-data" - the colors, archetypes, and game records. Does not currently do anything with match records
         summary = [line.strip('\n') for line in deck_file.readlines()]
         deck_color = summary[0].split(':')[1].strip(' ')
         deck_archetypes = summary[1].split(':')[1].strip(' ').split('_')
-        deck_record = list(map(float,summary[3].split(':')[1].strip(' ').split('-')))
+        deck_record = list(map(float, summary[3].split(':')[1].strip(' ').split('-')))
 
-        # extract the cards in the decklist - will extract sideboard as well.
         cards = []
         for card_info in summary[5:]:
             card_info = card_info.strip('\n')
@@ -54,11 +45,11 @@ def make_deck(infile):
                 cards.extend([card_info])
                 continue
             else:
-                num, card = card_info.split(' ')[0],' '.join(card_info.split(' ')[1:])
-                cards.extend([card]*int(num))
+                num, card = card_info.split(' ')[0], ' '.join(card_info.split(' ')[1:])
+                cards.extend([card] * int(num))
         try:
             div = cards.index('')
-            maindeck, side = cards[:div], cards[div+1:]
+            maindeck, side = cards[:div], cards[div + 1:]
         except:
             maindeck = cards
             side = []
@@ -67,133 +58,108 @@ def make_deck(infile):
     return maindeck, side, deck_color, deck_archetypes, win, loss
 
 def extract_decklists(directory, magic_cards, date_arg):
-
     '''Parses all the decklists in a directory and creates a dictionary to contain this info.'''
     misspellings = open('misspellings.txt', 'w')
     misspellings.write('The following cards are not found in Scryfall\'s database:\n')
     deck_dict = {}
 
-    # extract and make the decklist for every deck file in the input directory
     for i, infile in enumerate(os.listdir(directory)):
+        if infile[-4:] != '.txt': continue
 
-        if infile[-4:] != '.txt': continue # added to avoid '.DS_store', etc
-
-        # attempt to analyze decklist. If unable, skip it. Will extract date if it exists.
         try:
-            maindeck, side, color, archetypes, win, loss = make_deck(os.path.join(directory,infile))
-            
+            maindeck, side, color, archetypes, win, loss = make_deck(os.path.join(directory, infile))
             if date_arg:
                 date = infile.split('_')[-1][:-4]
         except:
             print('File {} could not be analyzed.'.format(infile))
             continue
 
-        for card in maindeck + side: 
-            if not magic_cards.get(card): 
+        for card in maindeck + side:
+            if not magic_cards.get(card):
                 misspellings.write('{} in file {}\n'.format(card, infile))
 
-        deck_dict[i] = {'main': maindeck, 'side': side, 'color': color, 'archetypes': archetypes, 'record':[win, loss]}
+        deck_dict[i] = {'main': maindeck, 'side': side, 'color': color, 'archetypes': archetypes, 'record': [win, loss]}
         if date_arg: deck_dict[i]['date'] = date
 
     return deck_dict
 
 def find_card_type(full_type):
-    
     '''Takes in a card_type (str) and returns its shortened type (Artifact, Creature, Enchantment, PW, Land, Sorcery, Instant)'''
-
     for card_type in ['Creature', 'Artifact', 'Enchantment', 'Planeswalker', 'Land', 'Sorcery', 'Instant']:
         if card_type in full_type:
             return card_type
-
     return None
 
 def export_card_analysis(deck_list_dict, magic_cards, card_filter, archetype_dict):
-    
-    '''Analyzes card representation and win rates and exports them to csv. If the normalize argument is true, it normalizes 
-    card win rates to the deck win rates.'''
-    
+    '''Analyzes card representation and win rates and exports them to csv.'''
     card_dict = defaultdict(lambda: {'win': 0, 'loss': 0, 'num': 0, 'archetypes': [], 'main %': []})
 
-    # loop through dictionary, extract info on individual cards
     for deck_dict in deck_list_dict.values():
-
-        # extract deck, get its record
         deck, side = deck_dict['main'], deck_dict['side']
         win, loss = map(int, deck_dict['record'])
-
-        # get the deck archetype for normalization
         archetypes = deck_dict['archetypes']
-        if len(archetypes) == 1: archetype = 'Pure ' + archetypes[0]
-        else: archetype = archetypes[-1]
+        if len(archetypes) == 1:
+            archetype = 'Pure ' + archetypes[0]
+        else:
+            archetype = archetypes[-1]
 
-        # loop through cards in deck, check if they exist in Scryfall. If they do, store game information.
         for card in deck:
-            
             if not magic_cards.get(card): continue
+            card_dict[card]['num'] += 1
+            card_dict[card]['win'] += win
+            card_dict[card]['loss'] += loss
+            card_dict[card]['archetypes'] += [archetype]
+            if side: card_dict[card]['main %'] += [1]
 
-            else: 
-                card_dict[card]['num'] += 1
-                card_dict[card]['win'] += win
-                card_dict[card]['loss'] += loss
-                card_dict[card]['archetypes'] += [archetype]
-                
-                # if there is SB info for this deck, note that the card is in the main over the side
-                if side: card_dict[card]['main %'] += [1]
-
-        # loop through sideboard if not empty, noting that the cards are in the side over main
         for card in side:
-
             if not magic_cards.get(card): continue
-
-            else: card_dict[card]['main %'] += [0]
-            
+            card_dict[card]['main %'] += [0]
 
     print('{} unique cards identified in decklists'.format(len(card_dict)))
 
-    # extract information about the cards from scryfall dictionary
     for card in card_dict.keys():
         color, cmc, card_type = magic_cards[card].values()
-
-        # add card characteristics
         for characteristic, value in zip(['color', 'cmc', 'type'], [color, cmc, find_card_type(card_type)]):
             card_dict[card][characteristic] = value
 
-        # calculate the maindeck % rate if sideboard information exists for any of the decks that contain the card
         if len(card_dict[card]['main %']) != 0:
             card_dict[card]['main %'] = np.average(card_dict[card]['main %'])
-
-            # if the card has only ever been sideboarded, it won't contain a win %, etc so skip those analyses.
             if card_dict[card]['main %'] == 0:
-                card_dict[card]['win %'], card_dict[card]['win %/arch %'] = 'NA', 'NA'
+                card_dict[card]['win %'], card_dict[card]['win %/arch %'] = np.nan, np.nan
                 continue
-
         else:
-            card_dict[card]['main %'] = 'NA'
+            card_dict[card]['main %'] = np.nan
 
-        # get win rates and perform normalization by archetype win rate
-        card_dict[card]['win %'] = card_dict[card]['win']/(card_dict[card]['win'] + card_dict[card]['loss'])
+        card_dict[card]['win %'] = card_dict[card]['win'] / (card_dict[card]['win'] + card_dict[card]['loss'])
         archetype_winrates = [archetype_dict[archetype]['Win %'] for archetype in card_dict[card]['archetypes']]
-        card_dict[card]['win %/arch %'] = card_dict[card]['win %']/np.average(archetype_winrates)
+        if len(archetype_winrates) > 0 and np.average(archetype_winrates) != 0:
+            card_dict[card]['win %/arch %'] = card_dict[card]['win %'] / np.average(archetype_winrates)
+        else:
+            card_dict[card]['win %/arch %'] = np.nan
 
-    # store the results of the card analysis in a dataframe. Then calculate win %, apply filter, and export to csv.
     results = {card: {key: card_dict[card][key] for key in ['win', 'loss', 'num', 'color', 'cmc', 'type', 'main %', 'win %', 'win %/arch %']} for card in card_dict.keys()}
-    results_df = pd.DataFrame.from_dict(results, orient = 'index').reset_index()
-    results_df.columns = ['Name', 'Win', 'Loss','Num','Color', 'CMC', 'Type', 'Main %', 'Win %', 'Win %/Arch %']
-
+    results_df = pd.DataFrame.from_dict(results, orient='index').reset_index()
+    results_df.columns = ['Name', 'Win', 'Loss', 'Num', 'Color', 'CMC', 'Type', 'Main %', 'Win %', 'Win %/Arch %']
 
     if card_filter:
         results_df = results_df.loc[results_df['Num'] > card_filter]
 
-    #export analyses, sorting by Win %, Win %/Arch %, and Main %
-    win_df = results_df.sort_values(by = 'Win %', ascending = False)
-    norm_df = results_df.sort_values(by = 'Win %/Arch %', ascending = False)
-    main_df = results_df.sort_values(by = 'Main %', ascending = False)
+    # Convert 'Win %' to numeric and handle NaN values
+    results_df['Win %'] = pd.to_numeric(results_df['Win %'], errors='coerce')
+    results_df = results_df.dropna(subset=['Win %'])  # Drop rows with NaN in 'Win %'
 
-    win_df.to_csv('Card_Analysis_Win%.csv', index = False)
-    norm_df.to_csv('Card_Analysis_Norm%.csv', index = False)
-    main_df.to_csv('Card_Analysis_Main%.csv', index = False)
+    # Sort the DataFrame
+    win_df = results_df.sort_values(by='Win %', ascending=False)
+    norm_df = results_df.sort_values(by='Win %/Arch %', ascending=False)
+    main_df = results_df.sort_values(by='Main %', ascending=False)
+
+    win_df.to_csv('Card_Analysis_Win%.csv', index=False)
+    norm_df.to_csv('Card_Analysis_Norm%.csv', index=False)
+    main_df.to_csv('Card_Analysis_Main%.csv', index=False)
 
     return win_df, norm_df, main_df
+
+# Rest of the code remains unchanged...
 
 def export_archetype_analysis(deck_list_dict):
     

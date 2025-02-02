@@ -10,3 +10,6 @@ Pilgrim's eye in file UBR_Control.txt
 Lorien Revealed in file UBR_Control.txt
 Embereth Shieldbreaker in file UBR_Midrange.txt
 Troll of Khazad-dum in file UBR_Midrange.txt
+Hearth Elemental in file UBR_Midrange_2.txt
+Coastline Marauder in file UBR_Midrange_2.txt
+Sapphire Dragon in file UBR_Midrange_2.txt
