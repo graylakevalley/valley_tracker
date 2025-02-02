@@ -1,0 +1,12 @@
+The following cards are not found in Scryfall's database:
+Ginger Brute in file BW_Aggro.txt
+Cheeky House-Mouse in file BW_Aggro.txt
+Bartolome del Presidio in file BW_Aggro.txt
+Swamps in file BW_Aggro.txt
+Swamps in file BW_Aggro.txt
+Pinnacle Monk in file UR_Aggro.txt
+Jwari Disruption in file UR_Aggro.txt
+Pilgrim's eye in file UBR_Control.txt
+Lorien Revealed in file UBR_Control.txt
+Embereth Shieldbreaker in file UBR_Midrange.txt
+Troll of Khazad-dum in file UBR_Midrange.txt

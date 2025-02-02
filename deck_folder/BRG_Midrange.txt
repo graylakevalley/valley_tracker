@@ -1,0 +1,38 @@
+Colors: BRG
+Archetype: Midrange_Combo
+Record: 2-1
+Games: 4-2
+
+1 Triskelion
+1 Rite of the Raging Storm
+1 Curse of Predation
+1 Untethered Express
+1 Blasting Station
+1 Murderous Redcap
+1 Honest Rutstein
+1 Flametongue Kavu
+1 Grumgully, the Generous
+1 Bloodbraid Elf
+1 Yahenni, Undying Partisan
+1 Duskwatch Recruiter // Krallenhorde Howler
+1 Renata, Called to the Hunt
+1 Spiteful Prankster
+1 Blood Artist
+1 Tyvar's Stand
+1 Hunter's Talent
+1 Malevolent Rumble
+1 Cache Grab
+1 Thriving Grove
+1 Woodland Chasm
+1 Game Trail
+1 Fabled Passage
+1 Lotus Petal
+1 Twisted Landscape
+1 Experiment One
+1 Elves of Deep Shadow
+1 Rabbit Battery
+1 Haywire Mite
+1 Carrion Feeder
+5 Forest
+4 Mountain
+1 Swamp

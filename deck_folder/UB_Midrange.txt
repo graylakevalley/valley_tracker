@@ -1,0 +1,30 @@
+Colors: UB
+Archetype: Midrange_Aristocrats
+Record: 3-0
+Games: 5-1
+
+1 Fatal Push
+1 Zulaport Cutthroat
+1 Lampad of Death's Vigil
+1 Marionette Apprentice
+1 Blood Artist
+1 Deep-Cavern Bat
+1 Vohar, Vodalian Desecrator
+1 Night's Whisper
+1 Thought-Stalker Warlock
+1 Liliana's Devotee
+1 Serum Visionary
+1 Lord Skitter's Butcher
+1 Morbid Opportunist
+1 Fall from Favor
+1 Bastion of Remembrance
+1 Defiled Crypt // Cadaver Lab
+1 Revenge of the Rats
+1 Cynette, Jelly Drover
+1 Ravenous Chupacabra
+1 Sling-Gang Lieutenant
+1 Shriekmaw
+1 Treasure Cruise
+1 Behold the Unspeakable
+7 Island
+9 Swamp

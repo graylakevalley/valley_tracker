@@ -1,0 +1,48 @@
+Colors: UBR
+Archetype: Midrange
+Record: 0-3
+Games: 0-6
+
+1 Embereth Veteran
+1 Guttersnipe
+1 Skittering Precursor
+1 Hearth Elemental
+1 Heartfire Immolator
+1 Coastline Marauder
+1 Lightning Bolt
+1 Khenra Spellspear
+1 Meteor Golem
+1 The Underworld Cookbook
+1 Crackling Drake
+1 Mayhem Devil
+1 Dinrova Horror
+1 Fire // Ice
+1 Narset, Parter of Veils
+1 Archive Dragon
+1 Rise from the Tides
+1 Kiora, Behemoth Beckoner
+1 Whirler Rogue
+1 Mana Leak
+1 Forbid
+1 Sapphire Dragon
+1 Cynette, Jelly Drover
+1 Shoreline Looter
+1 Treasure Cruise
+1 Infernal Grasp
+1 Morbid Opportunist
+1 Power Word Kill
+1 Cut Down
+1 Exhume
+1 Duress
+1 Vengeful Bloodwitch
+1 Bandit's Talent
+1 Drown in Sorrow
+1 Gurmag Angler
+1 Black Dragon Gate
+1 Sea Gate
+1 Rakdos Carnarium
+1 Frostboil Snarl
+1 Volatile Fjord
+4 Swamp
+4 Island
+4 Mountain

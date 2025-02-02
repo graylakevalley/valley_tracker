@@ -1,0 +1,39 @@
+Colors: UBR
+Archetype: Midrange_Reanimator
+Record: 2-1
+Games: 4-2
+
+1 Lightning Bolt
+1 Voldaren Epicure
+1 Dragon's Rage Channeler
+1 Careful Study
+1 Embereth Shieldbreaker
+1 Infernal Grasp
+1 Flametongue Yearling
+1 Agonizing Remorse
+1 Life // Death
+1 Memory Lapse
+1 Ivora, Insatiable Heir
+1 Battle Cry Goblin
+1 Daze
+1 Highway Robbery
+1 Cunning Sparkmage
+1 Frantic Search
+1 General Kreat, the Boltbringer
+1 Necromancy
+1 Psychatog
+1 Blood for Bones
+1 Geological Appraiser
+1 Control Magic
+1 Oliphaunt
+1 Troll of Khazad-dum
+1 Waker of Waves
+1 Perilous Landscape
+1 Frostboil Snarl
+1 Smoldering Marsh
+1 Choked Estuary
+1 Thriving Isle
+1 Thriving Moor
+5 Mountain
+3 Swamp
+2 Island

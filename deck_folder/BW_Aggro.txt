@@ -1,0 +1,33 @@
+Colors: BW
+Archetype: Aggro_Tokens
+Record: 3-0
+Games: 6-0
+
+1 Novice Inspector
+1 Thraben Inspector
+1 Recruitment Officer
+1 Nurturing Pixie
+1 Ginger Brute
+1 Veteran Survivor
+1 Cheeky House-Mouse
+1 Signal Pest
+1 Adanto Vanguard
+1 Porcelain Legionnaire
+1 Marionette Apprentice
+1 Resolute Reinforcements
+1 Clarion Spirit
+1 Vengeful Bloodwitch
+1 Elas il-Kor, Sadistic Pilgrim
+1 Bartolome del Presidio
+1 Sun-Blessed Healer
+1 Dismember
+1 Case of the Gateway Express
+1 Lingering Souls
+1 Dewdrop Cure
+1 Bastion of Remembrance
+1 Hop to It
+1 Spectral Procession
+1 Battle Screech
+12 Plains
+2 Swamps
+1 Isolated Chapel

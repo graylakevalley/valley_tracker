@@ -1,0 +1,31 @@
+Colors: UR
+Archetype: Aggro_Prowess
+Record: 2-1
+Games: 4-2
+
+1 Monastery Swiftspear
+1 Electrostatic Infantry
+1 Coruscation Mage
+1 Khenra Spellspear
+1 Heartfire Immolator
+1 Guttersnipe
+1 Pinnacle Monk
+1 Saheeli, Sublime Artificer
+1 Isochron Scepter
+1 Fall from Favor
+1 Careful Study
+1 Preordain
+1 Consider
+1 Ponder
+1 Noxious Revival
+1 Condescend
+1 Highway Robbery
+1 Searing Spear
+1 Mana Leak
+1 Jwari Disruption
+1 Daze
+1 Discover the Impossible
+1 Hordeling Outburst
+1 Ghostfire Slice
+9 Mountain
+7 Island

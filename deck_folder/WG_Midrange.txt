@@ -1,0 +1,32 @@
+Colors: WG
+Archetype: Midrange_Tokens
+Record: 2-1
+Games: 4-2
+
+1 Indebted Spirit
+1 Thraben Inspector
+1 Path to Exile
+1 Swords to Plowshares
+1 Malevolent Rumble
+1 Case of the Gateway Express
+1 Barbed Spike
+1 Spirited Companion
+1 Sylvan Library
+1 Vitu-Ghazi Guildmage
+1 Anafenza, Kin-Tree Spirit
+1 Glyph Elemental
+1 Dog Umbra
+1 Prava of the Steel Legion
+1 Rosie Cotton of South Lane
+1 Scurry Oak
+1 Mage's Attendant
+1 Mentor of the Meek
+1 Inspiring Overseer
+1 Harmonize
+1 Cloudgoat Ranger
+1 Thopter Squadron
+1 Ridgescale Tusker
+1 Triplicate Spirits
+1 Generous Ent
+10 Plains
+6 Forest

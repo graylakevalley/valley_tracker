@@ -1,0 +1,52 @@
+Colors:UBR
+Archetype: Control_Reanimator
+Record: 0-3
+Games: 0-6
+
+1 Reanimate
+1 Lavaspur Boots
+1 Inquisition of Kozilek
+1 Bone Shards
+1 Thought Scour
+1 Agonizing Remorse
+1 Remand
+1 Go for the Throat
+1 Feed the Cycle
+1 Bandit's Talent
+1 Ransack the Lab
+1 Hymn to Tourach
+1 Sicarian Infiltrator
+1 Azra Oddsmaker
+1 Davriel, Rogue Shadowmage
+1 Narset, Parter of Veils
+1 Windfall
+1 Pilgrim's eye
+1 Shriekmaw
+1 Lorien Revealed
+1 Noise Marine
+1 Eldrazi Ravager
+6 Island
+4 Swamp
+1 Rakdos Carnarium
+1 Foreboding Ruins
+1 Fabled Passage
+1 Smoldering Marsh
+1 Aether Hub
+1 Thriving Isle
+
+1 Cackling Counterpart
+1 Breaker of Creation
+1 Syr Konrad, the Grim
+1 Defiled Crypt // Cadaver Lab
+1 Wayfarer's Bauble
+1 Kiora, Behemoth Beckoner
+1 Goblin Bushwhacker
+1 Untethered Express
+1 Grim Servant
+1 Skullclamp
+1 Stinkweed Imp
+1 Liliana's Devotee
+1 Thopter Squadron
+1 Tor Wauki the Younger
+1 Worm Harvest
+1 Evolution Witness
